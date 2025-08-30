@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/tech_blogs"
+        android:title="Tech Blogs">
+
+    </item>
+
+    <item android:id="@+id/edu_blogs"
+        android:title="Educational Blogs">
+
+    </item>
+
+    <item android:id="@+id/entertainment_blogs"
+        android:title="Entertainment Blogs">
+
+    </item>
+
+    <item android:id="@+id/other_blogs"
+        android:title="Other Blogs">
+
+    </item>
+
+    <item android:id="@+id/all_blogs"
+        android:title="All Blogs">
+
+    </item>
+</menu>

@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/MainBGColor"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Activities.ViewBlogActivity"
+    >
+
+    <LinearLayout
+        style="@style/MainBGColor"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+<!--        <androidx.cardview.widget.CardView-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            app:cardCornerRadius="15dp"-->
+<!--            android:layout_margin="8dp">-->
+
+<!--            <ImageView-->
+<!--                android:id="@+id/viewBlogThumbnail"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="240dp"-->
+<!--                android:scaleType="centerCrop"-->
+<!--                android:src="@drawable/flag"/>-->
+
+<!--        </androidx.cardview.widget.CardView>-->
+
+        <TextView
+            android:id="@+id/ViewBlogTitle"
+            style="@style/LargeTextStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:fontFamily="monospace"
+            android:text="Blog Title"
+            android:textSize="35sp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="8dp">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/ViewBlogProfilePic"
+                style="@style/ImageBrdrColor"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                app:civ_border_width="2dp" />
+
+            <TextView
+                android:id="@+id/ViewBlogUserName"
+                style="@style/MediumTextStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="User Name"
+                android:layout_gravity="center"
+                android:layout_marginHorizontal="8dp"
+                android:textSize="15sp"
+                />
+
+            <ImageView
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:layout_gravity="center"
+                android:src="@drawable/view" />
+
+            <TextView
+                android:id="@+id/ViewBlogViewsTv"
+                style="@style/MediumTextStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:layout_gravity="center"
+                android:layout_marginHorizontal="6dp"/>
+
+            <ImageView
+                android:layout_width="15dp"
+                android:layout_height="15dp"
+                android:layout_gravity="center"
+                android:src="@drawable/liked" />
+
+            <TextView
+                android:id="@+id/ViewBlogLikesTv"
+                style="@style/MediumTextStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0"
+                android:layout_gravity="center"
+                android:layout_marginHorizontal="6dp"/>
+
+            <TextView
+                android:id="@+id/dateTv"
+                style="@style/MediumTextStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center|end"
+                android:layout_weight="1"
+                android:text="17-08-2025"
+                android:textAlignment="viewEnd"
+                android:layout_marginHorizontal="6dp"/>
+
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:layout_marginHorizontal="8dp"
+            android:layout_marginTop="8dp"
+            android:background="@android:color/darker_gray"/>
+
+        <TextView
+            android:id="@+id/ViewBlogContent"
+            style="@style/MediumTextStyle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginVertical="4dp"
+            android:fontFamily="@font/baloo_2"
+            android:text="@string/dummytext"
+            android:textSize="20sp"
+            android:layout_marginHorizontal="12dp"/>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="2dp"
+            android:background="@android:color/darker_gray"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="8dp"
+            android:text="Comments"
+            android:textSize="30sp"
+            android:layout_weight="1"/>
+
+            <ImageView
+                android:id="@+id/likePostBtn"
+                android:layout_width="35dp"
+                android:layout_height="30dp"
+                android:layout_gravity="center"
+                android:layout_margin="4dp"
+                android:layout_marginEnd="8dp"
+                android:src="@drawable/unliked" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="8dp"
+            android:layout_marginVertical="4dp"
+            android:orientation="horizontal">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/CurrentUserProfilePic"
+                style="@style/ImageBrdrColor"
+                android:layout_width="60dp"
+                android:layout_height="50dp"
+                app:civ_border_width="2dp" />
+
+            <EditText
+                android:id="@+id/CommentBox"
+                style="@style/textInputStyle"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="4dp"
+                android:layout_weight="1"
+                android:hint="Comment..."
+                />
+
+            <ImageView
+                android:id="@+id/commentSendBtn"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/baseline_send_24"
+                android:layout_gravity="center"
+                android:layout_marginHorizontal="4dp"/>
+
+        </LinearLayout>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/CommentsRC"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:minHeight="100dp"
+            tools:listitem="@layout/comment_card"
+            android:layout_marginTop="4dp"
+            />
+
+    </LinearLayout>
+
+
+</androidx.core.widget.NestedScrollView>
