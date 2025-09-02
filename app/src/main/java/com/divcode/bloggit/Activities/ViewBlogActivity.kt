@@ -88,7 +88,7 @@ class ViewBlogActivity : AppCompatActivity() {
         val comments: MutableList<Comment> = mutableListOf()
         commentsRC = findViewById(R.id.CommentsRC)
         commentsAdapter = CommentsAdapter(comments, this)
-        commentsRC.isNestedScrollingEnabled = true;
+        commentsRC.isNestedScrollingEnabled = true
 
         commentsRC.adapter = commentsAdapter
         commentsRC.layoutManager = LinearLayoutManager(this)
@@ -137,7 +137,6 @@ class ViewBlogActivity : AppCompatActivity() {
                 FireStoreUtility.updateUsersLikedBlogs()
                 likeBlogBtn.setImageResource(R.drawable.unliked)
                 CommonUtils.loadedBlogs[CommonUtils.loadedBlogs.indexOf(blog)].likes -= 1
-                blog.likes -= 1
 
             } else {
                 FireStoreUtility.increaseLike(blog.userId, blog.title, blog.likes)
@@ -145,7 +144,6 @@ class ViewBlogActivity : AppCompatActivity() {
                 FireStoreUtility.updateUsersLikedBlogs()
                 likeBlogBtn.setImageResource(R.drawable.liked)
                 CommonUtils.loadedBlogs[CommonUtils.loadedBlogs.indexOf(blog)].likes += 1
-                blog.likes += 1
             }
 
         }

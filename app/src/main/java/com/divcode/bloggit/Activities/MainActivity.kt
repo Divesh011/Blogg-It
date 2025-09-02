@@ -31,7 +31,6 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.auth.auth
-import com.google.firebase.firestore.firestore
 import kotlinx.coroutines.launch
 
 // Main Entry for App
@@ -130,6 +129,7 @@ class MainActivity : AppCompatActivity() {
             }
     }
     private fun updateUI(user: FirebaseUser?) {
+        Log.d("MAINACT", "UPDATE UI CALLED")
         if (user != null){
                 CommonUtils.currentUser = auth.currentUser
                 Glide.with(this).asBitmap().load(CommonUtils.currentUser?.photoUrl.toString()).into<CustomTarget<Bitmap>>(object:

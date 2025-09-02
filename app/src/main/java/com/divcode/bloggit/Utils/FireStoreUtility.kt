@@ -136,6 +136,8 @@ object FireStoreUtility {
     fun increaseLike(uid: String, blogTitle: String, currentLikes: Long) {
         CommonUtils.getDBInstance().document("users/$uid/Blogs/$blogTitle/")
             .update("Likes", currentLikes + 1)
+
+        Log.d(TAG, "Liked")
     }
 
     // Decreases Like of particular blog

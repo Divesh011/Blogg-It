@@ -13,6 +13,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.PopupMenu
 import android.widget.TextView
+import android.widget.Toast
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.bumptech.glide.request.target.CustomTarget
@@ -91,12 +92,13 @@ class MyBlogsAdapter(val myBlogs: MutableList<Blog>, val context: Context) : Rec
                     when(item.itemId){
                         R.id.DeleteBlog -> {
                             FireStoreUtility.deleteBlog(myBlogs[adapterPosition]){
+                                CommonUtils.loadedBlogs.remove(myBlogs[adapterPosition])
+                                myBlogs.removeAt(adapterPosition)
+                                notifyItemRemoved(adapterPosition)
+                                notifyItemChanged(adapterPosition)
+                                notifyItemRangeChanged(0, myBlogs.size-1)
+                                Toast.makeText(context, "Blog Deleted!", Toast.LENGTH_SHORT).show()
                             }
-                            CommonUtils.loadedBlogs.remove(myBlogs[adapterPosition])
-                            myBlogs.removeAt(adapterPosition)
-                            notifyItemRemoved(adapterPosition)
-                            notifyItemChanged(adapterPosition)
-                            notifyItemRangeChanged(0, myBlogs.size-1)
                         }
 
                         R.id.EditBlog -> {

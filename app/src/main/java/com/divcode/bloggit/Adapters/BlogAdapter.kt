@@ -77,10 +77,19 @@ class BlogAdapter(val context: Context, var blogs: MutableList<Blog>) :
         init {
             // to open the Blog and start ViewBlogActivity
             itemView.setOnClickListener {
+                val blogIndex = CommonUtils.loadedBlogs.indexOf(
+                    blogs[adapterPosition]
+                )
                 Intent(context, ViewBlogActivity::class.java).apply{
-                    putExtra("CURRENTBLOG", adapterPosition)
-                    FireStoreUtility.increaseViews(blogs[adapterPosition].userId, blogs[adapterPosition].title, blogs[adapterPosition].views)
-                    blogs[adapterPosition].views += 1
+                    putExtra("CURRENTBLOG", blogIndex)
+                    if (CommonUtils.loadedBlogs[blogIndex].userId != CommonUtils.currentUser?.uid.toString()) {
+                        FireStoreUtility.increaseViews(
+                            CommonUtils.loadedBlogs[blogIndex].userId,
+                            CommonUtils.loadedBlogs[blogIndex].title,
+                            CommonUtils.loadedBlogs[blogIndex].views
+                        )
+                        CommonUtils.loadedBlogs[blogIndex].views += 1
+                    }
                     context.startActivity(this)
                 }
             }

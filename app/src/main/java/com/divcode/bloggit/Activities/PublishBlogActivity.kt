@@ -18,7 +18,6 @@ import com.divcode.bloggit.R
 import com.divcode.bloggit.Utils.Blog
 import com.divcode.bloggit.Utils.CommonUtils
 import com.divcode.bloggit.Utils.FireStoreUtility
-import com.google.android.gms.common.internal.service.Common
 import java.io.Serializable
 import java.time.LocalDate
 
@@ -108,24 +107,31 @@ class PublishBlogActivity : AppCompatActivity() {
                 finish()
             }
 
+        }else{
+            Toast.makeText(this, "One of the field is Empty. Make sure to fill out every Field.", Toast.LENGTH_LONG).show()
         }
     }
 
     fun updateBlog(blog: Blog, ){
         if(blogTitle.text.isNotEmpty() && blogContent.text.isNotEmpty() && checkedRadioCategory != null){
-            val newBlog = Blog(CommonUtils.currentUser?.uid.toString(),
-                blogTitle.text.toString(),
-                blogContent.text.toString(),
-                checkedRadioCategory!!,
-                LocalDate.now().toString(),
-                blog.views,
-                blog.likes
-            )
-            FireStoreUtility.updateBlog(blog, newBlog){
-                Toast.makeText(this, "Blog Updated!", Toast.LENGTH_SHORT).show()
-                CommonUtils.loadedBlogs.remove(blog)
-                CommonUtils.loadedBlogs.add(newBlog)
-                finish()
+            if (!(blog.content == blogContent.text.toString() && blog.title == blogTitle.text.toString() && blog.category == checkedRadioCategory)) {
+                val newBlog = Blog(
+                    CommonUtils.currentUser?.uid.toString(),
+                    blogTitle.text.toString(),
+                    blogContent.text.toString(),
+                    checkedRadioCategory!!,
+                    LocalDate.now().toString(),
+                    blog.views,
+                    blog.likes
+                )
+                FireStoreUtility.updateBlog(blog, newBlog) {
+                    Toast.makeText(this, "Blog Updated!", Toast.LENGTH_SHORT).show()
+                    CommonUtils.loadedBlogs.remove(blog)
+                    CommonUtils.loadedBlogs.add(newBlog)
+                    finish()
+                }
+            }else{
+                Toast.makeText(this, "You have Changed Nothing To Update This Blog.", Toast.LENGTH_SHORT).show()
             }
         }
     }

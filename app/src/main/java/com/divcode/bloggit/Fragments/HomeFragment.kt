@@ -2,7 +2,6 @@ package com.divcode.bloggit.Fragments
 
 import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
@@ -102,6 +101,7 @@ class HomeFragment() : Fragment() {
 
     // when user navigates back to home fragment after posting, deleting, updating blog then configure the recycler view accordingly before hand
     override fun onStart() {
+        CommonUtils.loadedBlogs.sortByDescending { it.views }
         if (CommonUtils.loadedBlogs.size > blogsCount) {
             adapter.notifyItemInserted(CommonUtils.loadedBlogs.size - 1)
             blogsCount = CommonUtils.loadedBlogs.size
