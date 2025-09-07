@@ -33,8 +33,9 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textView3"
+        >
 
-        />
+    </com.google.android.gms.common.SignInButton>
 
     <TextView
         style="@style/MediumTextStyle"

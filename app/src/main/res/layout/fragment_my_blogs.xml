@@ -21,6 +21,21 @@
         app:layout_constraintTop_toTopOf="parent"
         tools:listitem="@layout/blogpostcard" />
 
+    <TextView
+        android:id="@+id/NoBlogsTv"
+        style="@style/LargeTextStyle"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="25sp"
+        android:padding="10dp"
+        android:text="You Have Not Uploaded Any Blog Yet..."
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        />
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
