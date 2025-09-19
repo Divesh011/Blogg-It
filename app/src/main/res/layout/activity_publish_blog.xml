@@ -70,7 +70,7 @@
     <androidx.cardview.widget.CardView
         style="@style/BlogPostCardBG"
         android:layout_width="match_parent"
-        android:layout_height="300dp"
+        android:layout_height="0dp"
         android:layout_marginHorizontal="8dp"
         android:layout_marginTop="15dp"
         app:cardCornerRadius="15dp"
