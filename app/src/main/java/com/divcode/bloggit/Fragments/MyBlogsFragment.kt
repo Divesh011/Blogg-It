@@ -46,6 +46,7 @@ class MyBlogsFragment(): Fragment() {
         }
 
         adapter = MyBlogsAdapter(myBlogs,requireContext())
+        Log.d("MYBLOG", myBlogs.toString())
         myBlogRecyclerView.adapter = adapter
         myBlogRecyclerView.layoutManager = LinearLayoutManager(context)
         myBlogRecyclerView.setHasFixedSize(true)
